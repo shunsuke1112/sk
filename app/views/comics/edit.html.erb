@@ -1,0 +1,23 @@
+<%= form_for @comic do |f| %>
+    <%= f.label :作品名 %>
+    <%= f.text_field :name, :size => 30 %>
+    <%= f.label :ジャンル  %>
+    <%= f.select :genre, 
+    [["バトル・アクション"], 
+    ["スポーツ・部活・青春"], 
+    ["歴史・時代物"],
+    ["ミステリー・サスペンス"],
+    ["恋愛"]], include_blank: "選択して下さい" %>
+    <%= f.label :内容  %>
+    <%= f.text_area :content, :size => "30x2" %>
+    <%= f.label :感想  %>
+    <%= f.text_area :about, :size => "30x2" %>
+    <%= f.label :出版社 %>
+    <%= f.text_field :company, :size => 30 %>
+    <%= f.label :Amazonリンク  %>
+    <%= f.text_area :link, :size => "30x2" %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+
+    <%= f.submit "編集する" %>
+  <% end %>

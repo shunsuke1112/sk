@@ -1,0 +1,28 @@
+<div class="catchcopy">
+<h4>年中無休で楽しもう。</h4>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+</div>
+
+<h2>ログイン</h2>
+<p>※ユーザー名とパスワードを入力してください。</p>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <h2>ユーザー名 </h2><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+  <div class="field">
+    <h2>パスワード </h2><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+    </div>
+  <% end -%>
+  <div class="actions">
+    <%= f.submit "ログイン" %>
+  </div>
+<% end %>
+<%= render "users/shared/links" %>

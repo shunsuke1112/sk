@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= csrf_meta_tag %>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+
+<header>
+<div class="naidesu">
+ <h1>集英社</h1>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+</div>
+  
+<div class="header-list">
+  <ul>
+  <% if user_signed_in? %>
+        <li><%= link_to "新規投稿", new_comic_path %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+      <% end %>
+  </ul>
+ </div>
+</header>
+
+<main>
+ <%= yield %>
+</main>
+
+<footer>
+      <p>Copyright © GeekSalon All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

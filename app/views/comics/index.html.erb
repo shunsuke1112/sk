@@ -1,0 +1,73 @@
+<div class="catchcopy">
+<h4>年中無休で楽しもう。</h4>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+</div>
+
+<h3>一覧ページ</h3>
+<%= link_to "診断へ", shindans_path %>
+<% if user_signed_in? %>
+ <% if current_user.email == "admin@c" %>
+  <%= link_to "新規投稿ページへ", new_comic_path %>
+ <% end %>
+<% end %>
+<div class="comic-container">
+
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+
+<h3>投稿を検索</h3>
+ <%= form_tag({controller:"comics",action:"index"}, method: :get) do %>
+  <%= text_field_tag :search %>
+   <%= submit_tag '検索する'  %>
+<% end %>
+
+<div class="b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+  <% @comic.each do |t| %>
+    <div class="Comic">
+      <%= image_tag t.image_url, size: "250x350" if t.image? %>
+      <br>
+      <br>
+      <div class="a">
+      <%= t.name %>
+      <br>
+      <%= t.genre %>
+      <br>
+      <%= t.company %>
+      <br>
+      <%= t.about %>
+      <br>
+      <%= t.content %>
+      <br>
+      <%= t.link %>
+      </div>
+      
+      <% if user_signed_in? %>
+      <% if current_user == t.user.id || current_user.email == "admin@c" %>
+          <%= link_to "編集する", comic_path(t.id) %>
+      <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if current_user == t.user.id || current_user.email == "admin@c" %>
+        <%= button_to "削除する", comic_path(t.id), method: :delete %>
+      <% end %>
+    <% end %>
+
+      <div>
+      <h2>総合評価：
+      <span class="star-rating">
+         <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
+         <span class="star-rating-back">★★★★★</span>
+      </span> 
+      </h2>
+      </div>
+      </div>
+  <% end %>
+</div>
+  

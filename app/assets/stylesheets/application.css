@@ -1,0 +1,136 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ * {
+    padding: 0;
+    margin: 0;
+  }
+  body {
+    font-family: 'Zen Antique Soft';
+    height: fit-content;
+  }
+
+  
+  header {
+    background-color: transparent;
+    height: 80px;
+    font-weight: bold;
+    font-family: 'Zen Antique Soft', serif;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header a {
+    color: white; 
+    text-decoration: none;
+    font-size: 20px; 
+    position: relative;
+    right: 80px;
+  }
+  header h1 {
+    color: white;
+    margin-left: 20px;
+  }
+  .header-list {
+    display: flex;
+    align-items: center;
+    overflow: visible;
+  }
+  header ul {
+    display: flex;
+  }
+  header li {
+    list-style: none;
+    margin-right: 60px;
+    position: relative;
+    top: 10px;
+  }
+  main{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 24px;
+    position: relative;
+    left: 530px;
+    top: 120px;
+    height: 350px;
+  }
+  h4{
+    position: relative;
+    right: 70px;
+  }
+
+  footer {
+    color: white;
+    font-size: 17px;
+    height: 30px;
+    background-color: transparent;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    justify-content: center;
+  }
+
+.naidesu{
+    text-align: left;
+    position: relative;
+    top: 20px;
+    font-size: 40px;
+}
+
+.catchcopy{
+    text-align: center;
+    position: relative;
+    bottom: 100px;
+    right: 450px;
+    font-size: 90px;
+    transform: rotate(-5deg);
+    text-decoration: underline;
+    font-family: 'Zen Kurenaido', sans-serif;
+}
+
+ul{
+    margin-left: 830px;
+    margin-top: -20px;
+    overflow: visible;
+}
+li{
+  overflow: visible;
+}
+
+body{
+  /* 画像ファイルの指定 */
+  background-image: url(/assets/top.png1.jpg);
+   
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+   
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+   
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+   
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+   
+  /* 背景画像が読み込まれる前に表示される背景のカラー */
+  background-color: #464646;
+
+  animation: fadein 3s forwards;
+}
+  @keyframes fadein {
+    0% {opacity: 0}
+    100% {opacity: 1}
+  }
