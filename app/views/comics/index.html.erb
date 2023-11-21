@@ -1,29 +1,45 @@
 <div class="catchcopy">
-<h4>年中無休で楽しもう。</h4>
+    <div class="OneTextAnime">
+<br>
+<span>年</span>
+<span>中</span>
+<span>無</span>
+<span>休</span>
+<span>で</span>
+<span>楽</span>
+<span>し</span>
+<span>も</span>
+<span>う</span>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    </div>
 </div>
 
-<h3>一覧ページ</h3>
+<h3>［　一覧ページ　］</h3>
+<br>
+<div class="shindanhe">
 <%= link_to "診断へ", shindans_path %>
+</div>
+<br>
+<div class="newtweet">
 <% if user_signed_in? %>
  <% if current_user.email == "admin@c" %>
   <%= link_to "新規投稿ページへ", new_comic_path %>
  <% end %>
 <% end %>
-<div class="comic-container">
-
-<% if user_signed_in? %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
-<% end %>
-
-<h3>投稿を検索</h3>
+</div>
+<br>
+<div class="kensaku">
+<h4>投稿を検索</h4>
+</div>
+<div class="search">
  <%= form_tag({controller:"comics",action:"index"}, method: :get) do %>
   <%= text_field_tag :search %>
    <%= submit_tag '検索する'  %>
 <% end %>
-
+</div>
+<br>
 <div class="b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +47,14 @@
 
   <% @comic.each do |t| %>
     <div class="Comic">
-      <%= image_tag t.image_url, size: "250x350" if t.image? %>
+      <%= image_tag t.image_url, size: "250x370" if t.image? %>
+      <br>
+      <div class="kaigyo2">
+      出典：<%= t.copyright %>,
+      </div>
+      <div class="kaigyo">
+      <%= link_to nil, t.link2 if t.link2? %>
+      </div>
       <br>
       <br>
       <div class="a">
@@ -41,16 +64,20 @@
       <br>
       <%= t.company %>
       <br>
+     <div class="w"> 
       <%= t.about %>
+     </div>
       <br>
       <%= t.content %>
       <br>
-      <%= t.link %>
+      <%= link_to "Amazon購入ページへ",  t.link if t.link? %>
       </div>
       
       <% if user_signed_in? %>
       <% if current_user == t.user.id || current_user.email == "admin@c" %>
-          <%= link_to "編集する", comic_path(t.id) %>
+        <div class="edit">
+          <%= link_to "編集する",  edit_comic_path(t.id) %>
+        </div>
       <% end %>
     <% end %>
     <% if user_signed_in? %>
@@ -58,15 +85,6 @@
         <%= button_to "削除する", comic_path(t.id), method: :delete %>
       <% end %>
     <% end %>
-
-      <div>
-      <h2>総合評価：
-      <span class="star-rating">
-         <span class="star-rating-front" style="width: <%= getPercent(t.overall) %>%;">★★★★★</span>
-         <span class="star-rating-back">★★★★★</span>
-      </span> 
-      </h2>
-      </div>
       </div>
   <% end %>
 </div>

@@ -1,19 +1,31 @@
-<div class="catchcopy">
-<h4>年中無休で楽しもう。</h4>
+<div class="catchcopy2">
+    <div class="OneTextAnime2">
+<span>年</span>
+<span>中</span>
+<span>無</span>
+<span>休</span>
+<span>で</span>
+<span>楽</span>
+<span>し</span>
+<span>も</span>
+<span>う</span>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    </div>
 </div>
 
+<div class="loginpage">
 <h2>ログイン</h2>
 <p>※ユーザー名とパスワードを入力してください。</p>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <h2>ユーザー名 </h2><br />
+    <h2>ユーザー名 </h2>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  <br>
   <div class="field">
-    <h2>パスワード </h2><br />
+    <h2>パスワード </h2>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
   <% if devise_mapping.rememberable? -%>
@@ -26,3 +38,4 @@
   </div>
 <% end %>
 <%= render "users/shared/links" %>
+</div>

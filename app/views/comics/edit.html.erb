@@ -1,23 +1,47 @@
 <%= form_for @comic do |f| %>
+    <div class="editpage">
     <%= f.label :作品名 %>
     <%= f.text_field :name, :size => 30 %>
+    </div>
+    <div class="editpage">
     <%= f.label :ジャンル  %>
     <%= f.select :genre, 
     [["バトル・アクション"], 
     ["スポーツ・部活・青春"], 
     ["歴史・時代物"],
-    ["ミステリー・サスペンス"],
+    ["ミステリー・サスペンス・裏社会"],
     ["恋愛"]], include_blank: "選択して下さい" %>
+    </div>
+    <div class="editpage">
     <%= f.label :内容  %>
-    <%= f.text_area :content, :size => "30x2" %>
+    <%= f.text_area :content, :size => "80x4" %>
+    </div>
+    <div class="editpage">
     <%= f.label :感想  %>
     <%= f.text_area :about, :size => "30x2" %>
+    </div>
+    <div class="editpage">
     <%= f.label :出版社 %>
     <%= f.text_field :company, :size => 30 %>
+    </div>
+    <div class="editpage">
     <%= f.label :Amazonリンク  %>
-    <%= f.text_area :link, :size => "30x2" %>
+    <%= f.text_area :link, :size => "70x2" %>
+    </div>
+    <br>
+    <div class="editpage">
     <%= f.label :image %>
     <%= f.file_field :image %>
-
+    </div>
+    <div class="editpage">
+    <%= f.label :出典 %>
+    <%= f.text_field :copyright, :size => 50 %>
+    </div>
+    <div class="editpage">
+    <%= f.label :出典元リンク %>
+    <%= f.text_area :link2, :size => "70x2" %>
+    </div>
+    <div class="editpage">
     <%= f.submit "編集する" %>
+    </div>
   <% end %>

@@ -9,7 +9,11 @@
 
 <header>
 <div class="naidesu">
- <h1>集英社</h1>
+ <h1><%= link_to "集良書", comics_path %></h1>
+ <div class="shueesho">
+ <p><%= link_to "SHUEESHO", comics_path %></p>
+ 
+ </div>
  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
@@ -18,11 +22,21 @@
 <div class="header-list">
   <ul>
   <% if user_signed_in? %>
-        <li><%= link_to "新規投稿", new_comic_path %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-      <% end %>
+  <li><%= link_to "新規投稿", new_comic_path %></li>
+  <li class="logout-link"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+<% else %>
+  <div class="login">
+    <li><%= link_to "ログイン", new_user_session_path %></li>
+  </div>
+<% end %>
+
+
+
+
+
+
+
+</div>
   </ul>
  </div>
 </header>
@@ -32,7 +46,7 @@
 </main>
 
 <footer>
-      <p>Copyright © GeekSalon All Rights Reserved.</p>
+      <p>Copyright © SHUEESHO All Rights Reserved.</p>
 </footer>
 
 </body>

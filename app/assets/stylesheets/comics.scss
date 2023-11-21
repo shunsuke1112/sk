@@ -8,80 +8,137 @@
     width: 300px;
     margin: 30px;
   }
-  .name_field{
-    width: 200px;
-    margin-bottom: 30px;
-  }
 
-/*　以下新規投稿ページの星用のCSS　*/
+.kaigyo2{
+    width: 350px;
+}
 
-  .post_form{
-    display: flex;
-    flex-direction: row-reverse; /* 表示を反転 */
-    justify-content: flex-end;
-  }
-  .post_form input[type='radio']{
-    display: none;
-  }
-  /*　上記でラジオボタンを隠す。 */
-
-  .post_form label{
-    position: relative;
-    padding: 10px 10px 0;
-    color: gray;
-    cursor: pointer;
-    font-size: 30px; /*星の大きさを変更するときはここ*/
-  }
-  .post_form label .text{
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    text-align: center;
-    font-size: 9px; /*星の上の説明書きの大きさを変更するときはここ*/
-    color: gray;
-  }
-  .post_form label:hover,
-  .post_form label:hover ~ label,
-  .post_form input[type='radio']:checked ~ label{
-    color: #ffcc00;
-  }
-
-
-/*　以下一覧ページの星用のCSS　*/
-
-  .star-rating {
-    position: relative;
-    display: inline-block;
-    width: 5em;
-    height: 1em;
-    font-size: 25px;
-  }
-  .star-rating-front {
-    display: inline-block;
-    position: absolute; /* .star-rating-frontを最上面に */
-    top: 0;
-    left: 0;
+.kaigyo{
+    width: 350px;
     overflow: hidden;
-    color: #ffcc33;
-  }
-  .star-rating-back {
-    display: inline-block;
-    color: #ccc;
-    
-  }
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kaigyo a{
+    color: white;
+}
 
 .a{
     border: none;
-    background-color: rgb(196, 190, 190);
+    border-radius: 10px;
+    border-style: outset;
+    background-color: rgb(253, 250, 250);
     color: black;
+    width: 350px;
+
   }
 
   .b{
 display: flex;
+flex-wrap: wrap;
 gap: 50px;
 font-family: 'Noto Sans JP', sans-serif;;
+font-size: 15px;
+width: 92%;
+margin-left: 5%;
+}
+
+  .Comic {
+  animation: fadeIn 5s ease 1s 1 normal backwards;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.edit a{
+    color: white;
+    text-decoration: none;
+}
+
+.loginpage{
+    text-align: center;
+    position: relative;
+    bottom: 10%;
+    font-family: 'Noto Sans JP', sans-serif;;
+}
+
+.newtweet{
+    margin-left: 5%;
+}
+
+.newtweet a{
+    color: white;
+    text-decoration: none;
+    border: solid;
+    border-radius: 10px;
+}
+
+.newtweetpage{
+    text-align: center;
+    position: relative;
+    bottom: 30%;
+}
+
+.newtweetform{
+    margin-left: 35%;
+    position: relative;
+    bottom: 25%;
+}
+
+.submit{
+    margin-left: 50%;
+}
+
+.catchcopy2{
+  width: 900px;
+  position: relative;
+  margin-left: 50%;
+  bottom: 85px;
+  right: 450px;
+  font-size: 100px;
+  transform: rotate(-5deg);
+  text-decoration: underline;
+  font-family: 'Zen Kurenaido', sans-serif;
+}
+
+.catchcopy2 .OneTextAnime2{
+display: flex;
 overflow: hidden;
-position: relative;
-right: 250px;
+}
+
+.catchcopy2 .OneTextAnime2 span{
+opacity: 0;
+animation: onetxtanime 2s forwards;
+}
+
+.catchcopy2 .OneTextAnime2 span:nth-child(1){animation-delay: 0.5s}
+.catchcopy2 .OneTextAnime2 span:nth-child(2){animation-delay: 1.0s}
+.catchcopy2 .OneTextAnime2 span:nth-child(3){animation-delay: 1.5s}
+.catchcopy2 .OneTextAnime2 span:nth-child(4){animation-delay: 2.0s}
+.catchcopy2 .OneTextAnime2 span:nth-child(5){animation-delay: 2.5s}
+.catchcopy2 .OneTextAnime2 span:nth-child(6){animation-delay: 3.0s}
+.catchcopy2 .OneTextAnime2 span:nth-child(7){animation-delay: 3.5s}
+.catchcopy2 .OneTextAnime2 span:nth-child(8){animation-delay: 4.0s}
+.catchcopy2 .OneTextAnime2 span:nth-child(9){animation-delay: 4.5s}
+.catchcopy2 .OneTextAnime2 span:nth-child(10){animation-delay: 5.0s}
+
+@keyframes onetxtanime{
+from { opacity: 0 }
+to { opacity: 1 }
+}
+
+.tweetback a{
+  color: white;
+  text-decoration: none;
+  border: solid;
+  border-radius: 10px;
 }

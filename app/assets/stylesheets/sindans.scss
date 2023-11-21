@@ -26,9 +26,8 @@ body {
 
 #commonHeader {
     position: relative;
+    bottom: 30%;
     margin: 0 auto;
-  
-    
     color: #5391BA;
     font-weight: bold;
     text-align: center;
@@ -37,13 +36,27 @@ body {
     border-bottom: solid 2px #6cb4e4;
     background: -webkit-repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
     background: repeating-linear-gradient(-45deg, #f0f8ff, #f0f8ff 3px,#e9f4ff 3px, #e9f4ff 7px);
-
+    width: 100%;
+    animation-name: sample-animation;
+    animation-duration: 2s;
+    animation-timing-function: ease;
 }
+
+@keyframes sample-animation {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+
 #commonHeader section#flows {
+    color: white;
     margin: 0 auto;
     max-height: 170px;
     position: relative;
-    
+    top: 70%;
     font-size: 360%;
     text-align: center;
     padding:5px 5px 30px;
@@ -55,8 +68,20 @@ body {
     text-align: center;
     padding-top: 30px;
     padding:30px 5px 5px;
-
+    width: 100%;
+    height: 20px;
+    animation-name: sample-animation;
+    animation-duration: 2s;
+    animation-timing-function: ease;
 }
+    @keyframes sample-animation {
+        from{
+            width: 0;
+        }
+        to{
+            width: 100%;
+        }
+    }
 
 #commonHeader section#flows a.homeLink {
     width: 555px;
@@ -79,7 +104,9 @@ article:after, section:after, .clrFx:after {
     max-width: 980px;
     margin: 0 auto;
 }
-
+.txt{
+    color: #5391BA;
+}
 
 .hsd_question {
     position: relative;
@@ -139,15 +166,31 @@ article:after, section:after, .clrFx:after {
     min-width:320px;
     max-width:800px;
     margin:0 auto;
+    animation: fadeIn 4s ease 1s 1 normal backwards;
 }
+
+  @keyframes fadeIn{
+    from{
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 .qalist li {
     font-size:130%;
     font-weight: bold;
-    padding-top: 30px;
+    padding-top: 120px;
 }
 
 .qbox{
     text-align:center;
+    font-size: 35px;
+    position: relative;
+    right: 10px;
 }
 .qabox{
     width:300px;
@@ -212,11 +255,9 @@ article:after, section:after, .clrFx:after {
     padding: 20px;
     border-radius: 90px;
     cursor :pointer;
-    
     color: #fff;
     font-size:150%;
     line-height: 90px;
-    
     margin-top:30px;
 }
 
@@ -225,8 +266,27 @@ article:after, section:after, .clrFx:after {
     margin-right: 40px;
 }
 
+.btnBox_y:hover{
+    background-color: #FF8DB4;
+    margin-right: 40px;
+	transform: translateY(3px);
+}
+
+.btnBox_y:active{
+    transition-duration: .1s;
+}
+
 .btnBox_n{
     background-color: #62D7DE;
+}
+
+.btnBox_n:hover{
+    background-color: #62D7DE;
+	transform: translateY(3px);
+}
+
+.btnBox_n:active{
+    transition-duration: .1s;
 }
 
 .btnBox_x{
@@ -276,6 +336,7 @@ article:after, section:after, .clrFx:after {
     padding: 4px;
     margin: 10px 5px 10px;
     font-size:110%;
+    margin-top: 3%;
 }
 
 .point_box .box {
